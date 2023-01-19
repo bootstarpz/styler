@@ -1,13 +1,10 @@
-    var weu = window.location.href;
-    var wnm = getUrlParameter('wnm');
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "http://zorexeye.com/styles/cdn/default.css.php", true);
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("weu="+weu+"&wnm="+wnm);
-
-    function getUrlParameter(name) {
-        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-        var results = regex.exec(location.search);
-        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-    };
+  var serverUrl = "http://zorexeye.com/styles/cdn/default.css.php";
+  var pageUrl = window.location.href;
+  var customParam = customParam !== undefined ? customParam : "default";
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", serverUrl, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.send(JSON.stringify({
+    "page_url": pageUrl,
+    "custom_param": customParam
+  }));
